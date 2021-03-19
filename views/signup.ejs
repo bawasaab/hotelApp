@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Signup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+</head>
+<body>
+    
+    <div class="col-md-6 offset-md-3">
+        <hr class="mb-5">
+
+        <!-- form card change password -->
+        <div class="card card-outline-secondary">
+            <div class="card-header">
+                <h3 class="mb-0">Signup</h3>
+            </div>
+            <div class="card-body">
+                <form class="form" role="form" autocomplete="off" id="frm">
+                    <div class="form-group">
+                        <label for="inputPasswordNew">Email</label>
+                        <input type="email" name="email" class="form-control" id="email" required="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPasswordNew">Password</label>
+                        <input type="password" name="password" class="form-control" value="" id="password" required="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPasswordNew">Contact</label>
+                        <input type="text" name="contact" class="form-control" value="" id="contact" required="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPasswordNew">FirstName</label>
+                        <input type="text" name="first_name" class="form-control" value="" id="first_name" required="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPasswordNew">LastName</label>
+                        <input type="text" name="last_name" class="form-control" value="" id="last_name" required="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="button" id="btnSbt" class="btn btn-success btn-lg float-right">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /form card change password -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        $( '#btnSbt' ).on( 'click', function() {
+
+            $.ajax({
+                url: 'http://localhost:3000/api1/auth/signup',
+                method: 'POST',
+                dataType: 'JSON',
+                data: $('#frm').serialize(),
+                success: function( retdata ) {
+                    if( retdata.status == 200 ) {
+                        alert(retdata.msg);
+                        window.location.href = "http://localhost:3000/api1/auth/load/signin";
+
+                    } else {
+                        alert(retdata.msg);
+
+                    }
+                },
+                error: function(e){
+                    console.log(e);
+                }
+            });
+        } );
+    </script>
+</body>
+</html>

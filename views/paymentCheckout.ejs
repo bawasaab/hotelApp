@@ -1,0 +1,34 @@
+<html>
+    <head>Checkout</head>
+    <body>
+
+        <h1>paymentCheckout</h1><br/>
+
+        <form action="/charge" method="post">
+            <!-- <script
+                src="https://checkout.stripe.com/checkout.js" 
+                class="stripe-button" 
+                data-key="<%= key %>" 
+                data-amount="10" 
+                data-name="cute dog" 
+                data-description="this is my cute dog you have just bought" 
+                data-locale="auto" 
+                data-currency="gbp" 
+                
+            >
+            </script> -->
+            <script 
+                src="//checkout.stripe.com/v2/checkout.js"
+                class="stripe-button"
+                data-key="<%= key %>" 
+                data-amount="1000" 
+                data-currency="inr" 
+                data-name="Crafty Gourav" 
+                data-description="Handmade Art and Craft Products" 
+                data-locale="auto" 
+            > 
+            </script> 
+            <input type="hidden" name="chargeAmount" value="10" />
+        </form>
+    </body>
+</html>

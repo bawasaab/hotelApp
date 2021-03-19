@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+				<title>Humdine | Confirm Visitor</title>
+				<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+				<!-- Tell the browser to be responsive to screen width -->
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+					<!-- Font Awesome -->
+					<link rel="stylesheet" href="/designs/plugins/fontawesome-free/css/all.min.css">
+						<!-- Ionicons -->
+						<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+							<!-- icheck bootstrap -->
+							<link rel="stylesheet" href="/designs/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+								<!-- Theme style -->
+								<link rel="stylesheet" href="/designs/dist/css/adminlte.min.css">
+									<!-- Google Font: Source Sans Pro -->
+									<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+									</head>
+									<body class="hold-transition" style="background: url(images/login-bg.jpg);">
+
+
+<div class="topbar">
+<a href="javascript:void(0);">SHOW THIS SCREEN TO STAFF</a>
+</div>
+
+
+<style type="text/css">
+.topbar {
+text-align: center;
+background: #3336a2;
+float: left;
+width: 100%;
+padding: 10px 0px;
+z-index: 999999;
+overflow: hidden;
+position: relative;
+display: flow-root;
+}
+.topbar a {font-weight: bold;color: #fff;}  
+
+div#icox span i {
+    font-size: 20px;
+    color: #111e48;
+    width: 26px;
+    text-align: center;
+}
+
+div#icox span {
+    font-size: 18px;
+    font-weight: 300;
+    font-family: sans-serif;
+}
+
+div#icox span font {
+    font-weight: 500;
+}
+
+div#icox span font i {
+    font-style: normal;
+    font-weight: 200;
+    font-size: 16px;
+}  
+
+@media (min-width: 576px) {
+.modal-dialog {
+    max-width: 900px;
+    margin: 1.75rem auto;
+}
+
+}
+
+div#inside-dpop h1 {
+    color: #000;
+}
+
+div#inside-dpop h5 {
+    color: #1744d4;
+}  
+
+button#closex {
+    font-size: 52px;
+    margin-top: -10px;
+}
+</style>
+
+<div class="hold-transition login-page" style="background: url(images/login-bg.jpg); width: 100%;">
+
+
+
+										<div class="login-box">
+											<style>
+.register-logo i {
+    color: #121e48;
+    text-shadow: 0px 0px 5px #738eb5;
+    margin: 11px 0px;
+}
+.register-logo span {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.register-logo font {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.register-logo h2 {
+    margin: 0;
+    padding: 0;    color: #121e48;
+}
+</style>
+											<div class="register-logo" style="font-size: 20px;">
+												<br/>
+												<i class="fas fa-utensils"></i>
+												<div class="clearfix"></div>
+												<span>Checkin to</span>
+												<h2><%= data.rows.restaurant.restaurant_name %></h2>
+												<span><%= data.rows.restaurant.restaurant_addr %></span>
+											</div>
+											<!-- /.login-logo -->
+											<div class="card">
+												<div class="card-body login-card-body">
+													<form action="" method="post">
+														<div class="input-group mb-3" id="icox">
+															<span>
+																<i class="far fa-user"></i> Name: 
+																<font><%= data.rows.visitor.name %></font>
+															</span>
+														</div>
+														<div class="input-group mb-3" id="icox">
+															<span>
+																<i class="fas fa-mobile-alt"></i> Phone: 
+																<!-- <font>8989898989</font> -->
+																<font><%= data.rows.visitor.contact %></font>
+															</span>
+														</div>
+														<!-- <div class="input-group mb-3" id="icox">
+															<span>
+																<i class="fas fa-map-marker-alt"></i> Location: 
+																<font>Amritsar</font>
+															</span>
+														</div> -->
+														<div class="input-group mb-3" id="icox">
+															<span>
+																<i class="fa fa-table"></i> TableNo: 
+																<font><%= data.rows.visitor.table_number %> 
+																	<i>( <%= data.rows.minutesAgo %> minutes ago)</i>
+																</font>
+															</span>
+														</div>
+														<div class="row">
+															<!-- /.col -->
+															<div class="col-12">
+																<button type="button" class="btn btn-primary btn-block" id="p-btn">Check In Another Person</button>
+															</div>
+															<!-- /.col -->
+														</div>
+													</form>
+													<div class="clearfix"></div>
+													<hr/>
+													<p class="mb-1">
+														<center>
+															<a href="javascript:void(0);" id="b-text">I made a mistake</a>
+														</center>
+													</p>
+													
+												</div>
+												<!-- /.login-card-body -->
+											</div>
+										</div>
+										<!-- /.login-box -->
+										<center>
+											<b>
+												<a href="javascript:void(0);" data-toggle="modal" data-target="#modal-default">Why do I need to fill this ?</a>
+											</b>
+										</center>
+										<br/>
+										<br/>
+
+
+
+										<div class="modal fade" id="modal-default">
+											<div class="modal-dialog">
+											  <div class="modal-content">
+												<div class="modal-header">
+												  <button type="button" id="closex" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span></button>
+												</div>
+								  
+								  
+												<div class="modal-body" id="inside-dpop">
+								  
+												<h1>Frequently Asked Questions</h1>
+												<hr/>
+								  
+												  <h5>What is my data used for? Can restaurant use </h5>
+												  <p>As per the compliance rules, every restaurant tied up with Humdine agress to use your data only for the purpose of contact tracing which does not allow any marketing-related activities.</p>
+								  
+												  <hr/>
+								  
+												  <h5>What is contact tracing? </h5>
+												  <p>Contact tracing is where business must keep a record of those details, date, and time at which a person attended the facility. These records are kept in order to trace back an individual if needed. </p>
+								  
+												  <hr/>
+								  
+												  <h5>What are the COVID compliance rules and till when are they? </h5>
+												  <p>From 11:59pm on 31st May all Australian states have implemented new compliance rules for re-opening restaurants. These guidelines ask restaurants to implement contact tracing processes to capture and store customer information. This shall continue to take place until the restrictions are lifted.</p>
+								  
+												  <hr/>
+								  
+												  <h5>Why do you have to provide your information? </h5>
+												  <p>As per the new covid compliance rules all customers are required to provide theircontact details to restaurants in order for restaurants to implement the contact tracing processes.</p>
+								  
+												  <hr/>
+								  
+								  
+												  <h5>What sort of data is needed and who can access my data?</h5>
+												  <p>The data needed will only be personal data from the first name to the contact number. Restaurant owners will only access your data when instructed by government authorities.</p>
+								  
+												  <hr/>  
+								  
+								  
+												  <h5>How safe is my data and till when will it be stored?</h5>
+												  <p>This digital contact tracing solution will have complete data privacy with the bestsecurity and encryption standards. This data will be stored for 28days if contact tracers need to look back into who was potentially exposed, after which the data will be automatically removed from the system. </p>
+								  
+												  <hr/>
+								  
+								  
+												  <h5>How is Humdine helpful, and can I recommend this to restaurants? </h5>
+												  <p>The platform Humdine allows you to provide contactless, secured data entries straight from your mobile phones in just 4 steps to restaurants for contact tracing requirements. Of course, just share the link <a href="">www.humdine.com</a> to other users and restaurants.</p>
+								  
+								  
+								  
+												</div>
+												<div class="modal-footer">
+												  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+												</div>
+											  </div>
+											  <!-- /.modal-content -->
+											</div>
+											<!-- /.modal-dialog -->
+										  </div>
+										  <!-- /.modal -->
+								  
+
+										  </div>
+
+										<!-- jQuery -->
+										<script src="/designs/plugins/jquery/jquery.min.js"></script>
+										<!-- Bootstrap 4 -->
+										<script src="/designs/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+										<!-- AdminLTE App -->
+										<script src="/designs/dist/js/adminlte.min.js"></script>
+
+										<script>
+											$('#p-btn').on( 'click', function() {
+												
+												let restaurant_id = '<%= data.rows.restaurant._id %>';
+												let baseUrl = '<%= data.rows.baseUrl %>';
+												window.location.href = baseUrl +'/api1/visitors/load/'+ restaurant_id;
+											});
+
+											$('#b-text').on( 'click', function() {
+												
+												let restaurant_id = '<%= data.rows.restaurant._id %>';
+												let visitor_id = '<%= data.rows.visitor._id %>';
+												let baseUrl = '<%= data.rows.baseUrl %>';
+												window.location.href = baseUrl +'/api1/visitors/load/'+ restaurant_id +'/'+ visitor_id;
+											});
+										</script>
+									</body>
+								</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Insert Visitor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+</head>
+<body>
+    
+    <div class="col-md-6 offset-md-3">
+        <span class="anchor" id="formChangePassword"></span>
+        <hr class="mb-5">
+
+        <!-- form card change password -->
+        <div class="card card-outline-secondary">
+            <div class="card-header">
+                <h3 class="mb-0">Visitor detail</h3>
+            </div>
+            <div class="card-body">
+                <form class="form" role="form" autocomplete="off" id="frm">
+                    <div class="form-group">
+                        <label for="inputPasswordNew">Name</label>
+                        <input type="text" name="name" class="form-control" id="name" required="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPasswordNew">Contact</label>
+                        <input type="number" name="contact" class="form-control" value="" id="contact" required="">
+                        <input type="hidden" name="restaurant_id" id="restaurant_id" value="<%= restaurant_id %>">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPasswordNew">TableNumber</label>
+                        <input type="number" name="table_number" class="form-control" id="table_number" value="0" min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="button" id="btnSbt" class="btn btn-success btn-lg float-right">Check In</button>
+                    </div>
+
+                    <div class="form-group">
+                        <a href="javascript:void(0)">FAQs</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /form card change password -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        // $('#table_number').on( 'keyup', function( event ) {
+        //     if (event.keyCode < 48 || event.keyCode > 57)
+        //     return false;
+        // });
+
+        $( '#btnSbt' ).on( 'click', function() {
+
+            let baseUrl = '<%= baseUrl %>';
+            $.ajax({
+                url: baseUrl + '/api1/visitors',
+                method: 'POST',
+                dataType: 'JSON',
+                data: $('#frm').serialize(),
+                success: function( retdata ) {
+                    document.getElementById("frm").reset();
+                    alert(retdata.msg);
+                },
+                error: function(e){
+                    console.log(e);
+                }
+            });
+        } );
+    </script>
+</body>
+</html>
